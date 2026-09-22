@@ -12,7 +12,7 @@ public class TestRecargarJUnit {
 	@Test
 	public void testRecargaExitosa() {
 	
-		Maquina rubia = new Maquina ("Pilsener","Cerveza",0.02,8000);
+		Maquina rubia = new Maquina ("Pilsener","Cerveza",null, 0.02,8000);
 		
 		boolean resultado = rubia.recargarCerveza(3000);
 		assertTrue(resultado);
@@ -21,7 +21,7 @@ public class TestRecargarJUnit {
 		@Test
 		public void testDesborde() {
 		
-			Maquina negra = new Maquina ("Pilsener","Cerveza",0.02,8000);
+			Maquina negra = new Maquina ("Pilsener","Cerveza",null, 0.02,8000);
 			
 			boolean resultado = negra.recargarCerveza(5000);
 			assertTrue(resultado);
