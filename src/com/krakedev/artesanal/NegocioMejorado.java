@@ -15,10 +15,19 @@ public class NegocioMejorado {
         return "M-" + numeroAleatorio;
     }
 
-    public void agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
+   
+    public boolean agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
         String codigo = generarCodigo();
+
+        
+        if (recuperarMaquina(codigo) != null) {
+            return false; 
+        }
+
+    
         Maquina nuevaMaquina = new Maquina(codigo, nombreCerveza, descripcion, precioPorMl);
         this.maquinas.add(nuevaMaquina);
+        return true; 
     }
 
     public void cargarMaquinas() {
@@ -28,7 +37,6 @@ public class NegocioMejorado {
         }
     }
 
- 
     public Maquina recuperarMaquina(String codigo) {
         for (int i = 0; i < maquinas.size(); i++) {
             Maquina maquinaEncontrada = maquinas.get(i);
@@ -36,10 +44,10 @@ public class NegocioMejorado {
                 return maquinaEncontrada;
             }
         }
-        return null; 
+        return null;
     }
 
-    
+   
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
