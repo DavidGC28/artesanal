@@ -18,7 +18,7 @@ public class TestNegocioMejorado {
        
         assertTrue(codigo.startsWith("M-"), "El código debe comenzar con 'M-'");
 
-      
+       
         String numeroStr = codigo.substring(2);
         int numero = Integer.parseInt(numeroStr);
 
