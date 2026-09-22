@@ -15,16 +15,18 @@ public class NegocioMejorado {
         return "M-" + numeroAleatorio;
     }
 
-   
     public void agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
-       
         String codigo = generarCodigo();
-
-       
         Maquina nuevaMaquina = new Maquina(codigo, nombreCerveza, descripcion, precioPorMl);
-
-      
         this.maquinas.add(nuevaMaquina);
+    }
+
+
+    public void cargarMaquinas() {
+        for (int i = 0; i < maquinas.size(); i++) {
+            Maquina maquina = maquinas.get(i);
+            maquina.llenarMaquina();
+        }
     }
 
    
