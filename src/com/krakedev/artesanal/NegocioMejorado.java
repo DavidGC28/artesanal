@@ -21,7 +21,6 @@ public class NegocioMejorado {
         this.maquinas.add(nuevaMaquina);
     }
 
-
     public void cargarMaquinas() {
         for (int i = 0; i < maquinas.size(); i++) {
             Maquina maquina = maquinas.get(i);
@@ -29,7 +28,18 @@ public class NegocioMejorado {
         }
     }
 
-   
+ 
+    public Maquina recuperarMaquina(String codigo) {
+        for (int i = 0; i < maquinas.size(); i++) {
+            Maquina maquinaEncontrada = maquinas.get(i);
+            if (maquinaEncontrada.getCodigo().equals(codigo)) {
+                return maquinaEncontrada;
+            }
+        }
+        return null; 
+    }
+
+    
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
