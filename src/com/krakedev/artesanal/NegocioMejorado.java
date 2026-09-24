@@ -72,7 +72,6 @@ public class NegocioMejorado {
         return null;
     }
 
-    
     public Cliente buscarClientePorCodigo(int codigo) {
         if (this.clientes == null) {
             return null;
@@ -80,13 +79,31 @@ public class NegocioMejorado {
         for (int i = 0; i < clientes.size(); i++) {
             Cliente clienteEncontrado = clientes.get(i);
             if (clienteEncontrado != null && clienteEncontrado.getCodigo() == codigo) {
-                return clienteEncontrado; 
+                return clienteEncontrado;
             }
         }
-        return null; 
+        return null;
     }
 
-    
+   
+    public double consumirCerveza(int codigoCliente, String codigoMaquina, int cantidad) {
+     
+        Maquina maquinaRecuperada = recuperarMaquina(codigoMaquina);
+
+       
+        Cliente clienteEncontrado = buscarClientePorCodigo(codigoCliente);
+
+        
+        if (maquinaRecuperada != null && clienteEncontrado != null) {
+ 
+            double totalPagar = maquinaRecuperada.servirCerveza(cantidad);
+            return totalPagar;
+        }
+
+        return 0.0;
+    }
+
+
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
