@@ -2,17 +2,15 @@ package com.krakedev.artesanal;
 
 import java.util.ArrayList;
 
-// SI LA CLASE CLIENTE O MAQUINA ESTÁN EN OTRO PAQUETE, IMPORTALAS ASÍ:
-// import com.krakedev.artesanal.entidades.Cliente;
-// import com.krakedev.artesanal.entidades.Maquina;
-
 public class NegocioMejorado {
 
     private ArrayList<Maquina> maquinas;
     private ArrayList<Cliente> clientes;
+    private int ultimoCodigo = 0; 
 
     public NegocioMejorado() {
         this.maquinas = new ArrayList<>();
+        
     }
 
     public String generarCodigo() {
@@ -49,6 +47,28 @@ public class NegocioMejorado {
         return null;
     }
 
+   
+    public void registrarCliente(String nombre, String cedula) {
+     
+        ultimoCodigo++;
+        int codigoCliente = ultimoCodigo;
+
+       
+        if (this.clientes == null) {
+            this.clientes = new ArrayList<>();
+        }
+
+        
+        Cliente nuevoCliente = new Cliente();
+        nuevoCliente.setCodigo(codigoCliente); 
+        nuevoCliente.setNombre(nombre);
+        nuevoCliente.setCedula(cedula);
+
+        
+        this.clientes.add(nuevoCliente);
+    }
+
+  
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
@@ -63,5 +83,13 @@ public class NegocioMejorado {
 
     public void setClientes(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
+    }
+
+    public int getUltimoCodigo() {
+        return ultimoCodigo;
+    }
+
+    public void setUltimoCodigo(int ultimoCodigo) {
+        this.ultimoCodigo = ultimoCodigo;
     }
 }

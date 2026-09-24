@@ -4,7 +4,7 @@ package com.krakedev.artesanal;
 
 public class Cliente {
 
-    // Atributos base de Cliente (puedes agregar los que tenga tu proyecto, como cedula, nombre, etc.)
+    
     private String cedula;
     private String nombre;
 
@@ -16,7 +16,7 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    // Getters y Setters
+
     public String getCedula() {
         return cedula;
     }
@@ -32,4 +32,9 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+	public void setCodigo(int codigoCliente) {
+		
+		
+	}
 }
