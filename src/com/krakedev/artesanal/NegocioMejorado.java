@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class NegocioMejorado {
 
     private ArrayList<Maquina> maquinas;
-  
     private ArrayList<Cliente> clientes = new ArrayList<>();
     private int ultimoCodigo = 0;
 
@@ -52,12 +51,42 @@ public class NegocioMejorado {
         
         Cliente nuevoCliente = new Cliente();
         nuevoCliente.setCodigo(ultimoCodigo);
-        nuevoCliente.setNombre(nombre); // <- Guardar nombre
-        nuevoCliente.setCedula(cedula); // <- Guardar cédula
+        nuevoCliente.setNombre(nombre);
+        nuevoCliente.setCedula(cedula);
 
         this.clientes.add(nuevoCliente);
     }
- 
+
+    public Cliente buscarClientePorCedula(String cedula) {
+        if (cedula == null || this.clientes == null) {
+            return null;
+        }
+        for (int i = 0; i < clientes.size(); i++) {
+            Cliente clienteEncontrado = clientes.get(i);
+            if (clienteEncontrado != null && clienteEncontrado.getCedula() != null) {
+                if (clienteEncontrado.getCedula().equals(cedula)) {
+                    return clienteEncontrado;
+                }
+            }
+        }
+        return null;
+    }
+
+    
+    public Cliente buscarClientePorCodigo(int codigo) {
+        if (this.clientes == null) {
+            return null;
+        }
+        for (int i = 0; i < clientes.size(); i++) {
+            Cliente clienteEncontrado = clientes.get(i);
+            if (clienteEncontrado != null && clienteEncontrado.getCodigo() == codigo) {
+                return clienteEncontrado; 
+            }
+        }
+        return null; 
+    }
+
+    
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
@@ -81,22 +110,4 @@ public class NegocioMejorado {
     public void setUltimoCodigo(int ultimoCodigo) {
         this.ultimoCodigo = ultimoCodigo;
     }
-
-    public Cliente buscarClientePorCedula(String cedula) {
-        if (cedula == null || this.clientes == null) {
-            return null;
-        }
-        
-        for (int i = 0; i < clientes.size(); i++) {
-            Cliente clienteEncontrado = clientes.get(i);
-           
-            if (clienteEncontrado != null && clienteEncontrado.getCedula() != null) {
-                if (clienteEncontrado.getCedula().equals(cedula)) {
-                    return clienteEncontrado; 
-                }
-            }
-        }
-        return null; 
-}
-    
 }
