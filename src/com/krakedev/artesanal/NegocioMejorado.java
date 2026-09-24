@@ -2,9 +2,14 @@ package com.krakedev.artesanal;
 
 import java.util.ArrayList;
 
+// SI LA CLASE CLIENTE O MAQUINA ESTÁN EN OTRO PAQUETE, IMPORTALAS ASÍ:
+// import com.krakedev.artesanal.entidades.Cliente;
+// import com.krakedev.artesanal.entidades.Maquina;
+
 public class NegocioMejorado {
 
     private ArrayList<Maquina> maquinas;
+    private ArrayList<Cliente> clientes;
 
     public NegocioMejorado() {
         this.maquinas = new ArrayList<>();
@@ -15,19 +20,16 @@ public class NegocioMejorado {
         return "M-" + numeroAleatorio;
     }
 
-   
     public boolean agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
         String codigo = generarCodigo();
 
-        
         if (recuperarMaquina(codigo) != null) {
-            return false; 
+            return false;
         }
 
-    
         Maquina nuevaMaquina = new Maquina(codigo, nombreCerveza, descripcion, precioPorMl);
         this.maquinas.add(nuevaMaquina);
-        return true; 
+        return true;
     }
 
     public void cargarMaquinas() {
@@ -47,12 +49,19 @@ public class NegocioMejorado {
         return null;
     }
 
-   
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }
 
     public void setMaquinas(ArrayList<Maquina> maquinas) {
         this.maquinas = maquinas;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
     }
 }
