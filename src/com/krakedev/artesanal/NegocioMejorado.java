@@ -92,22 +92,33 @@ public class NegocioMejorado {
         }
     }
 
-   
     public double consumirCerveza(int codigoCliente, String codigoMaquina, int cantidad) {
         Maquina maquinaRecuperada = recuperarMaquina(codigoMaquina);
         Cliente clienteEncontrado = buscarClientePorCodigo(codigoCliente);
 
         if (maquinaRecuperada != null && clienteEncontrado != null) {
-            
             double totalPagar = maquinaRecuperada.servirCerveza(cantidad);
-            
-           
             registrarConsumo(clienteEncontrado, totalPagar);
-            
             return totalPagar;
         }
 
         return 0.0;
+    }
+
+    // --- PUNTO 19: Método consultarValorVendido ---
+    public double consultarValorVendido() {
+        double totalVendido = 0.0;
+        
+        if (this.clientes != null) {
+            for (int i = 0; i < clientes.size(); i++) {
+                Cliente cliente = clientes.get(i);
+                if (cliente != null) {
+                    totalVendido += cliente.getTotalConsumido();
+                }
+            }
+        }
+        
+        return totalVendido;
     }
 
     // Getters y Setters
