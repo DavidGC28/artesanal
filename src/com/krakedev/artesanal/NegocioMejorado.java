@@ -85,25 +85,33 @@ public class NegocioMejorado {
         return null;
     }
 
-   
-    public double consumirCerveza(int codigoCliente, String codigoMaquina, int cantidad) {
-     
-        Maquina maquinaRecuperada = recuperarMaquina(codigoMaquina);
 
-       
+    public void registrarConsumo(Cliente cliente, double valor) {
+        if (cliente != null) {
+        
+            double totalActual = cliente.getTotalConsumido();
+            cliente.setTotalConsumido(totalActual + valor);
+        }
+    }
+
+ 
+    public double consumirCerveza(int codigoCliente, String codigoMaquina, int cantidad) {
+        Maquina maquinaRecuperada = recuperarMaquina(codigoMaquina);
         Cliente clienteEncontrado = buscarClientePorCodigo(codigoCliente);
 
-        
         if (maquinaRecuperada != null && clienteEncontrado != null) {
- 
             double totalPagar = maquinaRecuperada.servirCerveza(cantidad);
+            
+          
+            registrarConsumo(clienteEncontrado, totalPagar);
+            
             return totalPagar;
         }
 
         return 0.0;
     }
 
-
+   
     public ArrayList<Maquina> getMaquinas() {
         return maquinas;
     }

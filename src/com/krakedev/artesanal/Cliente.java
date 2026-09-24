@@ -5,6 +5,7 @@ public class Cliente {
     private int codigo;
     private String nombre;
     private String cedula;
+    private double totalConsumido = 0.0; 
 
     public Cliente() {
     }
@@ -13,9 +14,10 @@ public class Cliente {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cedula = cedula;
+        this.totalConsumido = 0.0;
     }
 
-  
+    
     public int getCodigo() {
         return codigo;
     }
@@ -38,5 +40,13 @@ public class Cliente {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public double getTotalConsumido() {
+        return totalConsumido;
+    }
+
+    public void setTotalConsumido(double totalConsumido) {
+        this.totalConsumido = totalConsumido;
     }
 }
