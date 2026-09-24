@@ -15,16 +15,12 @@ public class TestAgregarMaquina {
     public void testAgregarMaquina() {
         NegocioMejorado negocio = new NegocioMejorado();
 
-        
         assertEquals(0, negocio.getMaquinas().size());
 
-        
         negocio.agregarMaquina("IPA", "Cerveza artesanal amarga", 0.05);
 
-        
         assertEquals(1, negocio.getMaquinas().size());
 
-       
         Maquina m = negocio.getMaquinas().get(0);
         assertEquals("IPA", m.getNombreCerveza());
         assertNotNull(m.getCodigo());

@@ -1,28 +1,27 @@
 package com.krakedev.artesanal;
 
-
-
 public class Cliente {
 
-    
-    private String cedula;
+    private int codigo;
     private String nombre;
+    private String cedula;
 
     public Cliente() {
     }
 
-    public Cliente(String cedula, String nombre) {
-        this.cedula = cedula;
+    public Cliente(int codigo, String nombre, String cedula) {
+        this.codigo = codigo;
         this.nombre = nombre;
-    }
-
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+  
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -33,8 +32,11 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-	public void setCodigo(int codigoCliente) {
-		
-		
-	}
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
 }
